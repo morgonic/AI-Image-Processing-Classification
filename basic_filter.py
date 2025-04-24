@@ -1,13 +1,15 @@
 from PIL import Image, ImageFilter, ImageOps # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 
-# Display/save function
+# Display/save helper function
 def show_and_save(img, title, filename):
     plt.imshow(img, cmap='gray') # Using grayscale colormap for better edge/emboss visibility
     plt.axis('off')
     plt.title(title)
     plt.savefig(filename)
     print(f"Processed image saved as '{filename}'.")
+
+# --- REQUIRED FILTERS ---
 
 # Guassian Blur
 def apply_blur_filter(image_path):
@@ -57,6 +59,8 @@ def apply_emboss_filter(image_path):
     except Exception as e:
         print(f"Error applying emboss filter: {e}")
 
+# --- CUSTOM FILTERS ---
+
 # Posterize
 def apply_posterize_filter(image_path):
     try:
@@ -75,6 +79,8 @@ def apply_pixelate_filter(image_path):
     except Exception as e:
         print(f"Error applying pixelate filter: {e}")
 
+# --- CUSTOM FILTER HELPER FUNCTIONS ---
+
 # Pixelate core helper
 def pixelate(img, pixel_size=2):
     width, height = img.size
@@ -90,14 +96,8 @@ def pixelate(img, pixel_size=2):
 def posterize(img, bits=3):
     return Image.eval(img, lambda x: x // 64 * 64)
 
-# Pixelate then Posterize
-def apply_pixelate_then_posterize(image_path):
-    try:
-        img = Image.open(image_path).resize((128, 128))
-        img_combo = posterize(pixelate(img))
-        show_and_save(img_combo, "Pixelate + Posterize", "pixelated_posterized_image.png")
-    except Exception as e:
-        print(f"Error applying pixelate + posterize filter: {e}")
+
+# --- FINAL CUSTOM FILTER ---
 
 # Posterize then Pixelate
 def apply_posterize_then_pixelate(image_path):
@@ -119,5 +119,4 @@ if __name__ == "__main__":
     apply_emboss_filter(image_path)
     apply_posterize_filter(image_path)
     apply_pixelate_filter(image_path)
-    apply_pixelate_then_posterize(image_path)
     apply_posterize_then_pixelate(image_path)
