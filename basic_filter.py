@@ -1,5 +1,5 @@
-from PIL import Image, ImageFilter
-import matplotlib.pyplot as plt
+from PIL import Image, ImageFilter, ImageOps # type: ignore
+import matplotlib.pyplot as plt # type: ignore
 
 # Display/save function
 def show_and_save(img, title, filename):
@@ -56,6 +56,58 @@ def apply_emboss_filter(image_path):
 
     except Exception as e:
         print(f"Error applying emboss filter: {e}")
+
+# Posterize
+def apply_posterize_filter(image_path):
+    try:
+        img = Image.open(image_path).resize((128, 128))
+        img_posterized = posterize(img)
+        show_and_save(img_posterized, "Posterize", "posterized_image.png")
+    except Exception as e:
+        print(f"Error applying posterize filter: {e}")
+
+# Pixelate
+def apply_pixelate_filter(image_path):
+    try:
+        img = Image.open(image_path).resize((128, 128))
+        img_pixelated = pixelate(img)
+        show_and_save(img_pixelated, "Pixelate", "pixelated_image.png")
+    except Exception as e:
+        print(f"Error applying pixelate filter: {e}")
+
+# Pixelate core helper
+def pixelate(img, pixel_size=2):
+    width, height = img.size
+    new_width = max(1, width // pixel_size)
+    new_height = max(1, height // pixel_size)
+
+    img_small = img.resize((new_width, new_height), resample=Image.BILINEAR)
+    img_pixelated = img_small.resize((width, height), Image.NEAREST)
+
+    return img_pixelated
+
+# Posterize core helper
+def posterize(img, bits=3):
+    return Image.eval(img, lambda x: x // 64 * 64)
+
+# Pixelate then Posterize
+def apply_pixelate_then_posterize(image_path):
+    try:
+        img = Image.open(image_path).resize((128, 128))
+        img_combo = posterize(pixelate(img))
+        show_and_save(img_combo, "Pixelate + Posterize", "pixelated_posterized_image.png")
+    except Exception as e:
+        print(f"Error applying pixelate + posterize filter: {e}")
+
+# Posterize then Pixelate
+def apply_posterize_then_pixelate(image_path):
+    try:
+        img = Image.open(image_path).resize((128, 128))
+        img_combo = pixelate(posterize(img))
+        show_and_save(img_combo, "Posterize + Pixelate", "posterized_pixelated_image.png")
+    except Exception as e:
+        print(f"Error applying posterize + pixelate filter: {e}")
+    
     
 # Run them all
 if __name__ == "__main__":
@@ -65,3 +117,7 @@ if __name__ == "__main__":
     apply_edge_filter(image_path)
     apply_sharpen_filter(image_path)
     apply_emboss_filter(image_path)
+    apply_posterize_filter(image_path)
+    apply_pixelate_filter(image_path)
+    apply_pixelate_then_posterize(image_path)
+    apply_posterize_then_pixelate(image_path)
