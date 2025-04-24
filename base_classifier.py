@@ -5,7 +5,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input, decode_
 from tensorflow.keras.preprocessing import image # type: ignore
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
-import cv2
+import cv2 # type: ignore
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
