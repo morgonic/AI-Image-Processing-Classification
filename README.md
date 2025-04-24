@@ -136,3 +136,32 @@ The AI's explanation of the **basic_filter.py** file's code did make sense to me
 Just as was done previously for **base_classifier.py**, the image is resized, but in this case it adds the GuassianBlur filter using PIL.Image and ImageFilter. Just as I did previously in **base_classifier.py**, it uses plt.imshow, plt.axis('off'), and plt.savefig(*image_path*) to display and save the image. It also calls the function in a similar block of code beginning with *if __name__ == "__main__":* and passes in the image path.
 
 After implementing the logic in **base_classifier.py**, the **basic_filter.py** code seems far more simple, basic, and, above all, easy to understand.
+
+## Custom Filter (Posterize then Pixelate)
+# Alternate Title: Minecraft Artwork
+
+The custom filter that I ultimately ended up creating is a combination of two other custom filters: posterize and pixelate. 
+
+The first custom filter I implemented was posterize, which gave the image a cool cartoon-adjacent/comic-book-adjacent aesthetic, but I felt that I could do more with it.
+
+The second custom filter I implemented was pixelate, which pixelates the image using a pixel size of 2 to preserve details, rather than going with a chunkier pixelation, which obscures detail and makes the image unrecognizable.
+
+I decided to experiment by combining these two filters, first by pixelating and then posterizing, and then by posterizing and then pixelating. 
+Performing the pixelation before posterization made the image sort of awkward and not very aesthetically pleasing. 
+However, working the other way around, and posterizing then pixelating, gave the image a much cooler aesthetic than either posterize or pixelate did alone, individually. 
+
+In my opinion, this filter makes an image look like the artwork that you can hang on the walls in Minecraft. 
+The colors are smooth and vibrant and the pixels give it a retro feel.
+Ultimately, I am very pleased with the custom filter I ended up creating and implementing, with the help of the AI agent.
+
+## Reflection
+
+Working with the AI to explain and write Python code was enlightening and entertaining. I had fun collaborating with the AI to bring my ideas to life, and the AI's explanations of the code and detailed answers to clarifying questions I would ask were incredibly educational and enlightening and helped to train how I thought about the program and about coding in Python in general.
+
+Using the AI, I was more quickly able to bring to life the custom filter I had imagined, and any tweaks or revisions I wished to make to the code and the filters along the way were much easier to make with an AI agent available to provide detailed context and instructions in exchange for code revisions and additions. In a way, this made working on the project fun and entertaining, as having the AI to assist alleviated much of the stress and headaches that come along with coding. This meant that I was able to let my creativity shine bright without being impeded by frustration and confusion, leading to a satisfying outcome and a lack of stress.
+
+The AI does a great job of not only explaining the code, but explaining why it wrote the code one way instead of the other. It also was very responsive to my own suggestions or corrections when it would spit out redundant code for something that I had already created a helper function to handle. The AI also made it extremely easy to refactor my code or adjust the logic to achieve slightly different results in one way or another.
+
+Working with the AI also proved to make debugging far easier, as I could paste error messages along with the lines of code they respond to, and the AI could detect what the issue was, whether it was an import I was missing, a syntax issue, or otherwise. This meant that I spent far less time trying to fix my code and more time trying to get creative with figuring out what I wanted my code to do. In a way, using the AI allowed me to keep looking ahead rather than looking back at the code or staying in the same spot debugging.
+
+In conclusion, collaborating with the AI to write the code for this project was fun, educational, and alleviated stress and confusion. It proved to be a worthy tool for programming, and aided me in achieving a final result that I am very satisfied with.
