@@ -13,6 +13,28 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 model = MobileNetV2(weights="imagenet")
 
+
+# --- Occlusion Functions ---
+def apply_black_box(img, x, y, box_size=50):
+    img_copy = img.copy()
+    img_copy[y:y+box_size, x:x+box_size] = 0
+    return img_copy
+
+def apply_blur_patch(img, x, y, box_size=50):
+    img_copy = img.copy()
+    patch = img[y:y+box_size, x:x+box_size]
+    blurred = cv2.GaussianBlur(patch, (15, 15), 0)
+    img_copy[y:y+box_size, x:x+box_size] = blurred
+    return img_copy
+
+def apply_noise_patch(img, x, y, box_size=50):
+    img_copy = img.copy()
+    noise = np.random.randint(0, 256, (box_size, box_size, 3), dtype=np.uint8)
+    img_copy[y:y+box_size, x:x+box_size] = noise
+    return img_copy
+
+
+# --- Grad-CAM Heatmap Functions ---
 def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index=None):
     grad_model = tf.keras.models.Model(
         [model.inputs],
@@ -66,6 +88,7 @@ def save_and_display_gradcam(img_path, heatmap, cam_path="cam.jpg", label=None, 
     filename = f"gradcam_plot_{label}.png" if label else "gradcam_plot.png"
     plt.savefig(filename)
 
+# --- Image Classification Function ---
 def classify_image(image_path):
     """Classify an image and display the predictions."""
     try:
@@ -99,6 +122,50 @@ def classify_image(image_path):
     except Exception as e:
         print(f"Error processing image: {e}")
 
+# --- Occlusion Wrapper Function ---
+def occlude_and_classify(image_path, x, y, box_size=50, occlusion_type='black'):
+    try:
+        # Load and preprocess original image
+        original_img = cv2.imread(image_path)
+        original_img = cv2.resize(original_img, (224, 224))
+
+        # Apply occlusion
+        if occlusion_type == 'black':
+            occluded_img = apply_black_box(original_img, x, y, box_size)
+        elif occlusion_type == 'blur':
+            occluded_img = apply_blur_patch(original_img, x, y, box_size)
+        elif occlusion_type == 'noise':
+            occluded_img = apply_noise_patch(original_img, x, y, box_size)
+        else:
+            raise ValueError(f"Unknown occlusion type: {occlusion_type}")
+
+        # Save and optionally view the occluded image
+        occluded_path = f"occluded_{occlusion_type}.jpg"
+        cv2.imwrite(occluded_path, occluded_img)
+
+        # Convert to PIL and classify
+        img_pil = image.array_to_img(occluded_img)
+        img_array = image.img_to_array(img_pil)
+        img_array = preprocess_input(img_array)
+        img_array = np.expand_dims(img_array, axis=0)
+
+        predictions = model.predict(img_array)
+        decoded = decode_predictions(predictions, top=3)[0]
+
+        print(f"\nTop-3 Predictions (with {occlusion_type} patch at ({x},{y})): ")
+        for i, (imagenet_id, label, score) in enumerate(decoded):
+            print(f"{i + 1}: {label} ({score:.2f})")
+
+    except Exception as e:
+        print(f"Error during occlusion classification: {e}")
+
+
+# --- Image Classification Function Call ---
 if __name__ == "__main__":
     image_path = "elephant.jpg"  
     classify_image(image_path)
+
+    # Try occlusion at position (60, 60) with a 100x100 patch
+    occlude_and_classify(image_path, x=60, y=60, box_size=100, occlusion_type='black')
+    occlude_and_classify(image_path, x=60, y=60, box_size=100, occlusion_type='blur')
+    occlude_and_classify(image_path, x=60, y=60, box_size=100, occlusion_type='noise')
