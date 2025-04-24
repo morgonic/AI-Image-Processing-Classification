@@ -119,7 +119,7 @@ Just looking at the confidence scores, the black patch was the most disruptive a
 
 However, looking at the actual predicted items, the occlusion that had the greatest impact on the model's performance was the blur patch. The 50x50 blur patch resulted in new predictions like Komodo_dragon and also was the only occlusion to result in the #1 prediction being a triceratops instead of Indian_elephant.
 
-**Conclusion**
+## Conclusion
 
 In conclusion, it makes sense that a black occlusion patch would result in lower confidence scores for predictions, as a whole section of the image is just completely black, completely blocking any details that would allow for higher confidence scores.
 
