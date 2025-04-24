@@ -138,7 +138,7 @@ Just as was done previously for **base_classifier.py**, the image is resized, bu
 After implementing the logic in **base_classifier.py**, the **basic_filter.py** code seems far more simple, basic, and, above all, easy to understand.
 
 ## Custom Filter (Posterize then Pixelate)
-# Alternate Title: Minecraft Artwork
+## Alternate Title: Minecraft Artwork
 
 The custom filter that I ultimately ended up creating is a combination of two other custom filters: posterize and pixelate. 
 
@@ -154,7 +154,7 @@ In my opinion, this filter makes an image look like the artwork that you can han
 The colors are smooth and vibrant and the pixels give it a retro feel.
 Ultimately, I am very pleased with the custom filter I ended up creating and implementing, with the help of the AI agent.
 
-## Reflection
+# Reflection
 
 Working with the AI to explain and write Python code was enlightening and entertaining. I had fun collaborating with the AI to bring my ideas to life, and the AI's explanations of the code and detailed answers to clarifying questions I would ask were incredibly educational and enlightening and helped to train how I thought about the program and about coding in Python in general.
 
