@@ -138,7 +138,7 @@ Just as was done previously for **base_classifier.py**, the image is resized, bu
 After implementing the logic in **base_classifier.py**, the **basic_filter.py** code seems far more simple, basic, and, above all, easy to understand.
 
 ## Custom Filter (Posterize then Pixelate)
-## Alternate Title: Minecraft Artwork
+### Alternate Title: Minecraft Artwork
 
 The custom filter that I ultimately ended up creating is a combination of two other custom filters: posterize and pixelate. 
 
