@@ -51,17 +51,17 @@ Everything that has been highlighted or tinted **blue** were either not focused 
 
 It is clear in order to make the prediction of **Indian elephant** from this image, the model focused heavily on the elephant's anatomy--the head, ears, rear, face, trunk--and some on the general context of the elephant's figure and the greenery surrounding or being held by it. It disregarded most of the background and some of the surface of the elephant's body, opting to focus on details like body and facial structure to make its guess.
 
-## Occlusion Predictions & Confidence Scores
+# Occlusion Predictions & Confidence Scores
 
 I ran the three occlusion functions twice on the image of the elephant--once with a 50x50 sized box, then once more with a 100x100 sized box.
 
-# Regular Image Classification
+## Regular Image Classification
 - Top-3 Predictions:
 - 1: Indian_elephant (0.30)
 - 2: triceratops (0.30)
 - 3: tusker (0.16)
 
-# 50x50 Results
+## 50x50 Results
 
 **Occlusion: Black Patch**
 - Top-3 Predictions (with black patch at (60,60)): 
@@ -81,7 +81,7 @@ I ran the three occlusion functions twice on the image of the elephant--once wit
 - 2: triceratops (0.16)
 - 3: teddy (0.07)
 
-# 100x100 Results
+## 100x100 Results
 
 **Occlusion: Black Patch**
 - Top-3 Predictions (with black patch at (60,60)): 
@@ -101,7 +101,7 @@ I ran the three occlusion functions twice on the image of the elephant--once wit
 - 2: apron (0.08)
 - 3: brain_coral (0.08)
 
-## Occlusion Results Analysis
+# Occlusion Results Analysis
 
 **Did the classifier struggle to classify the occluded images?**
 
