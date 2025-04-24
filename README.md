@@ -51,7 +51,9 @@ Everything that has been highlighted or tinted **blue** were either not focused 
 
 It is clear in order to make the prediction of **Indian elephant** from this image, the model focused heavily on the elephant's anatomy--the head, ears, rear, face, trunk--and some on the general context of the elephant's figure and the greenery surrounding or being held by it. It disregarded most of the background and some of the surface of the elephant's body, opting to focus on details like body and facial structure to make its guess.
 
-# Occlusion Predictions & Confidence Scores
+---
+
+# Occlusion Predictions & Confidence
 
 I ran the three occlusion functions twice on the image of the elephant--once with a 50x50 sized box, then once more with a 100x100 sized box.
 
@@ -103,7 +105,7 @@ I ran the three occlusion functions twice on the image of the elephant--once wit
 
 # Occlusion Results Analysis
 
-**Did the classifier struggle to classify the occluded images?**
+## Did the classifier struggle to classify the occluded images?
 
 Yes, the classifier did struggle more to classify the occluded images, more-so with the larger occlusion patch. 
 
@@ -111,7 +113,7 @@ When using a 50x50 sized occlusion patch, the classifier correctly guessed India
 
 When using a 100x100 sized occlusion patch, the classifier's predictions were way off. Instead of guessing animals like elephant, triceratops, or komodo dragon, it guessed items like monitor, screen, earthstar, jackfruit, and brain_coral, or it guessed scenes like cliff_dwelling. The animals it did guess were cats like cougar and lynx, which are far from being an elephant.
 
-**Which occlusion had the greatest impact on performance?**
+## Which occlusion had the greatest impact on performance?
 
 Just looking at the confidence scores, the black patch was the most disruptive and resulted in the lowest scores compared to image classification without occlusion.
 
