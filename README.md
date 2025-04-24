@@ -11,7 +11,7 @@ In base_classifier.py, it seems that something similar may be happening based on
 If I had not already had previous experience implementing image classification, this would likely make way less sense to me than it does now. 
 The only things that don't entirely make sense to me yet are the functions and syntax used. However, these are things I can pick up on quickly, and already being familiar with implementing image classification places me ahead of the game, I believe.
 
-## Top 3 Predications: basic_cat.jpg
+## Top 3 Predictions: basic_cat.jpg
 
 - Top-3 Predictions:
 - 1: tiger_cat (0.35)
