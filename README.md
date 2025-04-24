@@ -25,3 +25,28 @@ The only things that don't entirely make sense to me yet are the functions and s
 - 2: triceratops (0.30)
 - 3: tusker (0.16)
 
+## Heatmap Analysis
+
+Upon running the Grad-CAM heatmap function on the elephant image and analyzing the saved Grad-CAM plot image, it was apparent which parts of the photo the model focused on the most when making its prediction.
+
+Everything that has been highlighted in **red** or **hot pink** are the things that the model focused on the most. Those things are:
+- The top of the elephant's head and trunk 
+- The tips or edges of the elephant's ears
+- Just below the elephant's ears
+- The area around the elephant's trunk and mouth
+- The elephant's rear
+- Some of the greenery being held in the elephant's trunk
+
+Everything that has been highlighted in **yellow** and **green** were focused on with medium importance/relevance. Those things are:
+- The elephant's back
+- The surface of the elephant's head where it meets its back
+- The area surrounding the section of the trunk that is highlighted red
+- Some of the greenery surrounding the elephant
+
+Everything that has been highlighted or tinted **blue** were either not focused on at all or only had low or minimal relevance when predicting. Those things are:
+- The general background of greenery
+- The elephant's tusks
+- The very center of the elephant's face
+- A portion of the elephant's side
+
+It is clear in order to make the prediction of **Indian elephant** from this image, the model focused heavily on the elephant's anatomy--the head, ears, rear, face, trunk--and some on the general context of the elephant's figure and the greenery surrounding or being held by it. It disregarded most of the background and some of the surface of the elephant's body, opting to focus on details like body and facial structure to make its guess.
