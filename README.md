@@ -124,3 +124,15 @@ However, looking at the actual predicted items, the occlusion that had the great
 In conclusion, it makes sense that a black occlusion patch would result in lower confidence scores for predictions, as a whole section of the image is just completely black, completely blocking any details that would allow for higher confidence scores.
 
 It also makes sense that a blur patch would result in funky results, as when something is blurred it can be hard to make out exacly what it is, as important details are smoothed out, but form and color still exist, resulting in predictions that do take some details into account but not enough to have a more refined and accurate guess.
+
+---
+
+# Creating and Experimenting with Image Filters
+
+## AI Explanation
+
+The AI's explanation of the **basic_filter.py** file's code did make sense to me, even more-so after implementing the logic for image classification and adding occlusion patches.
+
+Just as was done previously for **base_classifier.py**, the image is resized, but in this case it adds the GuassianBlur filter using PIL.Image and ImageFilter. Just as I did previously in **base_classifier.py**, it uses plt.imshow, plt.axis('off'), and plt.savefig(*image_path*) to display and save the image. It also calls the function in a similar block of code beginning with *if __name__ == "__main__":* and passes in the image path.
+
+After implementing the logic in **base_classifier.py**, the **basic_filter.py** code seems far more simple, basic, and, above all, easy to understand.
