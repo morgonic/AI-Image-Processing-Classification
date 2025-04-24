@@ -1,0 +1,30 @@
+# Python
+__pychache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+
+# Virtual Environments
+venv/
+.env/
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# OS Stuff
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log 
+
+# Cache
+.cache/
+*.pickle
+*.pkl 
+*.h5
