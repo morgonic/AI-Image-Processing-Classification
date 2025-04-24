@@ -140,7 +140,7 @@ def occlude_and_classify(image_path, x, y, box_size=50, occlusion_type='black'):
             raise ValueError(f"Unknown occlusion type: {occlusion_type}")
 
         # Save and optionally view the occluded image
-        occluded_path = f"occluded_{occlusion_type}.jpg"
+        occluded_path = f"occluded_{occlusion_type}_x{x}_y{y}_s{box_size}.jpg"
         cv2.imwrite(occluded_path, occluded_img)
 
         # Convert to PIL and classify
@@ -165,7 +165,7 @@ if __name__ == "__main__":
     image_path = "elephant.jpg"  
     classify_image(image_path)
 
-    # Try occlusion at position (60, 60) with a 100x100 patch
-    occlude_and_classify(image_path, x=60, y=60, box_size=100, occlusion_type='black')
-    occlude_and_classify(image_path, x=60, y=60, box_size=100, occlusion_type='blur')
-    occlude_and_classify(image_path, x=60, y=60, box_size=100, occlusion_type='noise')
+    # Try occlusion at position (60, 60) with a 50x50 patch
+    occlude_and_classify(image_path, x=60, y=60, box_size=50, occlusion_type='black')
+    occlude_and_classify(image_path, x=60, y=60, box_size=50, occlusion_type='blur')
+    occlude_and_classify(image_path, x=60, y=60, box_size=50, occlusion_type='noise')
