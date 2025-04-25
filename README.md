@@ -158,11 +158,17 @@ Ultimately, I am very pleased with the custom filter I ended up creating and imp
 
 # Reflection
 
-Working with the AI to explain and write Python code was enlightening and entertaining. I had fun collaborating with the AI to bring my ideas to life, and the AI's explanations of the code and detailed answers to clarifying questions I would ask were incredibly educational and enlightening and helped to train how I thought about the program and about coding in Python in general.
+Working with the AI to explain and write Python code was enlightening and entertaining. I had fun collaborating with the AI to bring my ideas to life, and the AI's explanations of the code and detailed answers to clarifying questions I would ask helped shape how I thought about the program and about coding in Python in general.
+
+Rather than using it to only generate solutions, I found myself actively going back-and-forth, asking follow-up and clarifying questions, and refining code the same way I would when buddy programming or pair programming with a person.
+
+Something that really stood out when working with the AI was how it was not only able to give technical feedback but also stylistic. For example, when I wasn't satisfied with how my custom pixelation function initially turned out, with the AI's help I was able to pinpoint exactly why I didn't like the outcome, and tweak and refactor the logic accordingly. This way, I didn't just arbitrarily get a new version of the function generated, but I was able to tweak the logic in such a way that I achieved exactly what I wanted to. Collaborating with AI on this project felt more like co-creating than just using a tool at times.
 
 Using the AI, I was more quickly able to bring to life the custom filter I had imagined, and any tweaks or revisions I wished to make to the code and the filters along the way were much easier to make with an AI agent available to provide detailed context and instructions in exchange for code revisions and additions. In a way, this made working on the project fun and entertaining, as having the AI to assist alleviated much of the stress and headaches that come along with coding. This meant that I was able to let my creativity shine bright without being impeded by frustration and confusion, leading to a satisfying outcome and a lack of stress.
 
 The AI does a great job of not only explaining the code, but explaining why it wrote the code one way instead of the other. It also was very responsive to my own suggestions or corrections when it would spit out redundant code for something that I had already created a helper function to handle. The AI also made it extremely easy to refactor my code or adjust the logic to achieve slightly different results in one way or another.
+
+Through the use of AI, I was also able to explore new techniques that I otherwise might not have on my own, like building modular filter pipelines. Having an assistant that's aware of the context of the project and can understand why something is or isn't working and explain accordingly elevated my understanding of both Python and image classification and filters.
 
 Working with the AI also proved to make debugging far easier, as I could paste error messages along with the lines of code they respond to, and the AI could detect what the issue was, whether it was an import I was missing, a syntax issue, or otherwise. This meant that I spent far less time trying to fix my code and more time trying to get creative with figuring out what I wanted my code to do. In a way, using the AI allowed me to keep looking ahead rather than looking back at the code or staying in the same spot debugging.
 
